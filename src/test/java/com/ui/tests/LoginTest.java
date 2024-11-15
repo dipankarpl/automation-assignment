@@ -1,19 +1,16 @@
 package com.ui.tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static com.constants.Browser.*;
+import com.ui.pages.HomePage;
+
 public class LoginTest {
-	@Test
-	public void login() {
-		WebDriver driver = new EdgeDriver();
-		driver.get("http://www.automationpractice.pl/index.php");
-		driver.manage().window().maximize();
-		WebElement ele=driver.findElement(By.xpath("//a[normalize-space()='Sign in']"));
-		ele.click();
-		//driver.quit();
+	@Test(description = "Verifies user able to login with valid credentials", groups = {"e2e", "sanity"})
+	public void loginTest() {
+		HomePage homePage = new HomePage(String.valueOf(EDGE));
+		Assert.assertEquals(homePage.goToLoginPage().doLoginWith("abc.def@test.com", "password").getUserName(),
+				"Abc def");
 	}
 }
