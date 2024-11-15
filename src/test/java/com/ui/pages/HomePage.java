@@ -2,7 +2,9 @@ package com.ui.pages;
 
 import org.openqa.selenium.By;
 
+import static com.constants.Env.*;
 import com.utility.BrowserUtility;
+import static com.utility.PropertiesUtility.*;
 
 public final class HomePage extends BrowserUtility {
 
@@ -10,13 +12,13 @@ public final class HomePage extends BrowserUtility {
 
 	public HomePage(String browser) {
 		super(browser);
-		goToWebsite("http://www.automationpractice.pl/index.php");
+		goToWebsite(readProperty(String.valueOf(QA), "URL"));
 	}
 
 	public LoginPage goToLoginPage() {
 		clickOn(SIGN_IN_LINK_LOCATOR);
 		maximizeWindow();
-		LoginPage loginPage=new LoginPage(getDriver());
+		LoginPage loginPage = new LoginPage(getDriver());
 		return loginPage;
 	}
 
