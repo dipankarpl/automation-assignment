@@ -13,7 +13,7 @@ public class LoginTest {
 
 	@BeforeTest(description = "Load the homepage of the website")
 	public void setup() {
-		homePage = new HomePage(String.valueOf(EDGE));
+		homePage = new HomePage(EDGE);
 	}
 
 	@Test(description = "Verifies user able to login with valid credentials", groups = { "e2e", "sanity" })

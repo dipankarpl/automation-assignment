@@ -4,6 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import com.constants.Browser;
 
 public abstract class BrowserUtility {
 	private WebDriver driver;
@@ -17,13 +20,13 @@ public abstract class BrowserUtility {
 		this.driver = driver;
 	}
 
-	public BrowserUtility(String browserName) {
-		if (browserName.equalsIgnoreCase("chrome")) {
+	public BrowserUtility(Browser browserName) {
+		if (browserName == Browser.CHROME) {
 			driver = new ChromeDriver();
-		} else if (browserName.equalsIgnoreCase("edge")) {
+		} else if (browserName == Browser.EDGE) {
 			driver = new EdgeDriver();
-		} else {
-			System.err.println("Invalid browser selected!!select values between chrome, edge");
+		} else if (browserName == Browser.FIREFOX) {
+			driver = new FirefoxDriver();
 		}
 	}
 
