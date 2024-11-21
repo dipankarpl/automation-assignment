@@ -1,0 +1,13 @@
+{
+	"data":[
+		{
+			"emailAddress":"abc.def@test.com",
+			"password":"password"
+		},
+		
+		{
+			"emailAddress":"bakomam596@skrak.com",
+			"password":"password"
+		}
+	]
+}
