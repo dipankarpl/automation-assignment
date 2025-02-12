@@ -35,7 +35,13 @@ public class TestBase {
 		} else {
 			// Running the test on local machine!!!
 			logger.info("Load the Homepage of the website");
-			homePage = new HomePage(Browser.valueOf(browser.toUpperCase()), isHeadless);
+			Browser browserName;
+			try {
+				browserName = Browser.valueOf(browser.toUpperCase());
+			} catch (IllegalArgumentException e) {
+				browserName = Browser.EDGE;
+			}
+			homePage = new HomePage(browserName, isHeadless);
 
 		}
 	}
